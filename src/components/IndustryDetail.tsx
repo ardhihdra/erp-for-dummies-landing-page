@@ -32,12 +32,7 @@ import {
   Scissors,
 } from "lucide-react";
 
-export default async function IndustryDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export default async function IndustryDetail({ slug }: { slug: string }) {
   const industry = industries.find((ind) => ind.slug === slug);
 
   if (!industry) {
@@ -76,12 +71,12 @@ export default async function IndustryDetailPage({
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <nav className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+    <div className="min-h-screen bg-amber-50">
+      <nav className="bg-amber-50/80 backdrop-blur-md border-b border-amber-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <Link
             href="/"
-            className="inline-flex items-center text-gray-600 hover:text-blue-600 transition-colors font-medium group"
+            className="inline-flex items-center text-amber-700 hover:text-amber-900 transition-colors font-medium group"
           >
             <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
             Kembali
@@ -89,9 +84,9 @@ export default async function IndustryDetailPage({
         </div>
       </nav>
 
-      <section className="relative py-24 px-6 bg-white">
+      <section className="relative py-24 px-6 bg-gradient-to-br from-amber-50 to-orange-50">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold text-amber-900 mb-6 leading-tight">
             {industry.description}
           </h1>
 
@@ -100,14 +95,14 @@ export default async function IndustryDetailPage({
               href="https://wa.me/6281234567890"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-sm hover:shadow-md"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-amber-700 text-white font-semibold rounded-lg hover:bg-amber-800 transition-all shadow-sm hover:shadow-md"
             >
               <Phone className="w-4 h-4" />
               Hubungi Kami
             </a>
             <a
-              href="mailto:info@astiga.id"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-white border border-gray-200 text-gray-700 font-semibold rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all"
+              href="mailto:ardhi.rofi@kaizeni.xyz"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-white border border-amber-300 text-amber-800 font-semibold rounded-lg hover:border-amber-600 hover:text-amber-900 transition-all"
             >
               <Mail className="w-4 h-4" />
               Email
@@ -118,13 +113,13 @@ export default async function IndustryDetailPage({
 
       <section className="px-6 -mt-12">
         <div className="max-w-6xl mx-auto">
-          <div className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl overflow-hidden shadow-xl">
+          <div className="relative aspect-video bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl overflow-hidden shadow-xl">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
                 <div className="w-20 h-20 mx-auto mb-4 bg-white/50 rounded-2xl flex items-center justify-center">
                   {getIcon(industry.stats[0]?.icon || "Package")}
                 </div>
-                <p className="text-gray-500 font-medium">Dashboard Preview</p>
+                <p className="text-amber-700 font-medium">Dashboard Preview</p>
               </div>
             </div>
           </div>
@@ -136,26 +131,26 @@ export default async function IndustryDetailPage({
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {industry.stats.slice(0, 4).map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 text-blue-600 mb-3">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-amber-100 text-amber-700 mb-3">
                   {getIcon(stat.icon)}
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-1">
+                <div className="text-3xl font-bold text-amber-900 mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-sm text-amber-700">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-gradient-to-br from-amber-50 to-orange-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-amber-900 mb-4">
               Fitur Utama
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-amber-700 max-w-2xl mx-auto">
               Solusi lengkap untuk {industry.name}
             </p>
           </div>
@@ -163,18 +158,18 @@ export default async function IndustryDetailPage({
           <div className="grid md:grid-cols-3 gap-8">
             {industry.benefits.slice(0, 6).map((benefit, index) => (
               <div key={index} className="group">
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl overflow-hidden mb-4 group-hover:shadow-lg transition-shadow">
+                <div className="relative aspect-[4/3] bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl overflow-hidden mb-4 group-hover:shadow-lg transition-shadow">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-xl bg-white/80 flex items-center justify-center text-blue-600">
+                    <div className="w-16 h-16 rounded-xl bg-white/80 flex items-center justify-center text-amber-700">
                       {getIcon(benefit.icon)}
                     </div>
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3 className="text-lg font-bold text-amber-900 mb-2">
                   {benefit.title}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-amber-700 leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
@@ -183,10 +178,10 @@ export default async function IndustryDetailPage({
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-amber-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-amber-900 mb-4">
               Keunggulan Sistem
             </h2>
           </div>
@@ -194,29 +189,29 @@ export default async function IndustryDetailPage({
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-4">
             {industry.detailFeatures.slice(0, 8).map((feature, index) => (
               <div key={index} className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-semibold text-gray-900">
+                  <h4 className="font-semibold text-amber-900">
                     {feature.title}
                   </h4>
-                  <p className="text-sm text-gray-600">{feature.description}</p>
+                  <p className="text-sm text-amber-700">{feature.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-      <footer id="about" className="text-white py-16">
+      <footer id="about" className="bg-gradient-to-br from-amber-900 to-orange-900 text-white py-16">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             <div>
               <div className="flex items-center gap-2 mb-6">
-                <div className="flex items-center justify-center p-1.5 bg-blue-500 text-white rounded-lg">
+                <div className="flex items-center justify-center p-1.5 bg-amber-600 text-white rounded-lg">
                   <Hexagon className="h-5 w-5 fill-current" />
                 </div>
-                <span className="font-bold text-xl text-black">Astiga ERP</span>
+                <span className="font-bold text-xl text-amber-100">ASaudagarPro</span>
               </div>
-              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+              <p className="text-amber-200 text-sm mb-6 leading-relaxed">
                 Sistem ERP terpercaya untuk membantu bisnis Anda tumbuh lebih
                 cepat dan efisien dengan solusi yang disesuaikan untuk industri
                 Anda.
@@ -224,7 +219,7 @@ export default async function IndustryDetailPage({
               <div className="flex gap-4">
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-amber-800 hover:bg-amber-600 flex items-center justify-center transition-colors"
                 >
                   <svg
                     className="w-5 h-5"
@@ -236,7 +231,7 @@ export default async function IndustryDetailPage({
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-amber-800 hover:bg-amber-600 flex items-center justify-center transition-colors"
                 >
                   <svg
                     className="w-5 h-5"
@@ -248,7 +243,7 @@ export default async function IndustryDetailPage({
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-amber-800 hover:bg-amber-600 flex items-center justify-center transition-colors"
                 >
                   <svg
                     className="w-5 h-5"
@@ -260,7 +255,7 @@ export default async function IndustryDetailPage({
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-amber-800 hover:bg-amber-600 flex items-center justify-center transition-colors"
                 >
                   <svg
                     className="w-5 h-5"
@@ -274,8 +269,8 @@ export default async function IndustryDetailPage({
             </div>
 
             <div>
-              <h3 className="font-bold text-lg mb-4">Solutions</h3>
-              <ul className="space-y-3 text-gray-400 text-sm">
+              <h3 className="font-bold text-lg mb-4 text-amber-100">Solutions</h3>
+              <ul className="space-y-3 text-amber-200 text-sm">
                 <li>
                   <Link
                     href="#services"
@@ -320,8 +315,8 @@ export default async function IndustryDetailPage({
             </div>
 
             <div>
-              <h3 className="font-bold text-lg mb-4">Company</h3>
-              <ul className="space-y-3 text-gray-400 text-sm">
+              <h3 className="font-bold text-lg mb-4 text-amber-100">Company</h3>
+              <ul className="space-y-3 text-amber-200 text-sm">
                 <li>
                   <Link
                     href="#about"
@@ -366,15 +361,15 @@ export default async function IndustryDetailPage({
             </div>
 
             <div>
-              <h3 className="font-bold text-lg mb-4">Support</h3>
-              <ul className="space-y-4 text-gray-400 text-sm">
+              <h3 className="font-bold text-lg mb-4 text-amber-100">Support</h3>
+              <ul className="space-y-4 text-amber-200 text-sm">
                 <li>
                   <a
-                    href="mailto:info@astiga.id"
+                    href="mailto:ardhi.rofi@kaizeni.xyz"
                     className="flex items-center gap-3 hover:text-white transition-colors"
                   >
-                    <Mail className="w-4 h-4 text-blue-500" />
-                    <span>info@astiga.id</span>
+                    <Mail className="w-4 h-4 text-amber-400" />
+                    <span>ardhi.rofi@kaizeni.xyz</span>
                   </a>
                 </li>
                 <li>
@@ -382,13 +377,13 @@ export default async function IndustryDetailPage({
                     href="tel:+6281234567890"
                     className="flex items-center gap-3 hover:text-white transition-colors"
                   >
-                    <Phone className="w-4 h-4 text-blue-500" />
+                    <Phone className="w-4 h-4 text-amber-400" />
                     <span>+62 812-3456-7890</span>
                   </a>
                 </li>
                 <li>
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-blue-500 mt-1" />
+                    <MapPin className="w-4 h-4 text-amber-400 mt-1" />
                     <span>Jakarta, Indonesia</span>
                   </div>
                 </li>
@@ -404,12 +399,12 @@ export default async function IndustryDetailPage({
             </div>
           </div>
 
-          <div className="pt-8 border-t border-gray-800">
+          <div className="pt-8 border-t border-amber-800">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-400 text-sm">
-                © 2024 Astiga ERP. All rights reserved.
+              <p className="text-amber-200 text-sm">
+                © {new Date().getFullYear()} SaudagarPro. All rights reserved.
               </p>
-              <div className="flex gap-6 text-sm text-gray-400">
+              <div className="flex gap-6 text-sm text-amber-200">
                 <Link
                   href="/privacy"
                   className="hover:text-white transition-colors"

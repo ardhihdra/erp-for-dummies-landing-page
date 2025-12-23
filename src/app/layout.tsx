@@ -8,8 +8,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Hive - Integrated ERP Solution",
-  description: "Manage your business smarter and more efficiently with Hive.",
+  title: "SaudagarPro - Solusi Point of Sale, ERP & CRM",
+  description: "Kelola bisnis Anda dengan lebih cerdas dan efisien bersama SaudagarPro.",
 };
 
 export default function RootLayout({

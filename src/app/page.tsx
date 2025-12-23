@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { industries } from "@/data/industries";
 import AuthModal from "@/components/AuthModal";
+import SocialMedias from "@/components/SocialMedias";
 
 const trustedBrands = [
   {
@@ -95,133 +96,120 @@ const trustedBrands = [
 
 
 export default function LandingPage() {
-  const [selectedIndustry, setSelectedIndustry] = useState(0);
   const [showAuthModal, setShowAuthModal] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col font-sans">
-      <nav className="sticky top-0 z-50 w-full border-b border-muted  backdrop-blur-md">
+    <div className="min-h-screen flex flex-col font-sans bg-amber-50">
+      <nav className="sticky top-0 z-50 w-full border-b border-amber-200 bg-amber-50/80 backdrop-blur-md">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <div className="flex items-center justify-center p-1.5 bg-blue-500 text-white rounded-lg shadow-sm">
+            <div className="flex items-center justify-center p-1.5 bg-amber-700 text-white rounded-lg shadow-sm">
               <Hexagon className="h-5 w-5 fill-current" />
             </div>
-            <span className="text-black">
-              Astiga ERP
+            <span className="text-amber-900">
+              SaudagarPro
             </span>
           </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-            <Link href="#solutions" className="hover:text-primary transition-colors">
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-amber-700">
+            <Link href="#solutions" className="hover:text-amber-900 transition-colors">
               Solutions
             </Link>
-            <Link href="#services" className="hover:text-primary transition-colors">
+            <Link href="#services" className="hover:text-amber-900 transition-colors">
               Services
             </Link>
-            <Link href="#how-it-works" className="hover:text-primary transition-colors">
+            <Link href="#how-it-works" className="hover:text-amber-900 transition-colors">
               How it works
             </Link>
-            <Link href="#about" className="hover:text-primary transition-colors">
+            <Link href="#about" className="hover:text-amber-900 transition-colors">
               About
             </Link>
           </div>
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={() => setShowAuthModal(true)}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors px-4 py-2"
+              className="text-sm font-medium text-amber-700 hover:text-amber-900 transition-colors px-4 py-2"
             >
               Login
             </button>
             <button
               onClick={() => setShowAuthModal(true)}
-              className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-2.5 text-sm font-medium text-white shadow-lg shadow-blue-500/20 transition-all hover:bg-blue-700 hover:shadow-blue-500/40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-full bg-amber-700 px-6 py-2.5 text-sm font-medium text-white shadow-lg shadow-amber-700/20 transition-all hover:bg-amber-800 hover:shadow-amber-700/40 focus:outline-none focus:ring-2 focus:ring-amber-600 focus:ring-offset-2"
             >
               Sign Up
             </button>
           </div>
         </div>
       </nav>
-      <main className="relative">
+      <main className="relative bg-amber-50">
         <div className="absolute top-14 left-1/2 -translate-x-1/2 z-0 flex items-center justify-center pointer-events-none w-full h-[1100px]">
           <OrbitingCircles
             className="size-[50px] border-none bg-transparent"
             radius={520}
             path={true}
           >
-            <div className="flex h-full w-full items-center justify-center rounded-full bg-white shadow-md border ">
-              <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-                <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" fill="#4285F4" />
-                <path d="M12 7C11.4477 7 11 7.44772 11 8V12C11 12.5523 11.4477 13 12 13H16C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11H13V8C13 7.44772 12.5523 7 12 7Z" fill="white" />
-              </svg>
+            <div className="flex h-full w-full items-center justify-center rounded-full bg-white shadow-md border border-amber-200">
+              <Package className="w-6 h-6 text-amber-700" />
             </div>
-            <div className="flex h-full w-full items-center justify-center rounded-full bg-white shadow-md border ">
-              <svg className="h-6 w-6" viewBox="0 0 24 24" fill="#1877F2">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg>
+            <div className="flex h-full w-full items-center justify-center rounded-full bg-white shadow-md border border-amber-200">
+              <Settings className="w-6 h-6 text-amber-700" />
             </div>
-            <div className="flex h-full w-full items-center justify-center rounded-full bg-white shadow-md border ">
-              <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-                <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" fill="#E01E5A" />
-              </svg>
+            <div className="flex h-full w-full items-center justify-center rounded-full bg-white shadow-md border border-amber-200">
+              <BarChart3 className="w-6 h-6 text-amber-700" />
             </div>
-            <div className="flex h-full w-full items-center justify-center rounded-full bg-white shadow-md border ">
-              <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
-                <rect x="0" y="0" width="10" height="10" rx="2" fill="#0079BF" />
-                <rect x="0" y="12" width="10" height="10" rx="2" fill="#0079BF" />
-                <rect x="12" y="0" width="10" height="10" rx="2" fill="#0079BF" />
-                <rect x="12" y="12" width="10" height="10" rx="2" fill="#0079BF" />
-              </svg>
+            <div className="flex h-full w-full items-center justify-center rounded-full bg-white shadow-md border border-amber-200">
+              <MessageCircle className="w-6 h-6 text-amber-700" />
             </div>
           </OrbitingCircles>
         </div>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full -z-20 pointer-events-none">
-          <div className="absolute top-40 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl" />
-          <div className="absolute top-20 right-10 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl" />
+          <div className="absolute top-40 left-10 w-72 h-72 bg-amber-400/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 right-10 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl" />
         </div>
         <div className="relative z-10 flex flex-col items-center w-full px-4 mt-52">
           <div className="flex flex-wrap items-center justify-center gap-9.5">
             <div className="flex items-center justify-center flex-col space-y-2">
-              <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center">
-                <Package className="w-6 h-6 text-purple-600" />
+              <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center">
+                <Package className="w-6 h-6 text-amber-700" />
               </div>
-              <span className="text-sm text-muted-foreground font-medium">Create</span>
+              <span className="text-sm text-amber-700 font-medium">Create</span>
             </div>
             <div className="flex items-center justify-center flex-col space-y-2">
-              <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center">
-                <Settings className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center">
+                <Settings className="w-6 h-6 text-amber-700" />
               </div>
-              <span className="text-sm text-muted-foreground font-medium">Manage</span>
+              <span className="text-sm text-amber-700 font-medium">Manage</span>
             </div>
             <div className="flex items-center justify-center flex-col space-y-2">
-              <div className="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center">
-                <BarChart3 className="w-6 h-6 text-orange-600" />
+              <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center">
+                <BarChart3 className="w-6 h-6 text-amber-700" />
               </div>
-              <span className="text-sm text-muted-foreground font-medium">Schedule</span>
+              <span className="text-sm text-amber-700 font-medium">Schedule</span>
             </div>
             <div className="flex items-center justify-center flex-col space-y-2">
-              <div className="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center">
-                <MessageCircle className="w-6 h-6 text-green-600" />
+              <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center">
+                <MessageCircle className="w-6 h-6 text-amber-700" />
               </div>
-              <span className="text-sm text-muted-foreground font-medium">Chat</span>
+              <span className="text-sm text-amber-700 font-medium">Chat</span>
             </div>
             <div className="flex items-center justify-center flex-col space-y-2">
-              <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-gray-600" />
+              <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center">
+                <TrendingUp className="w-6 h-6 text-amber-700" />
               </div>
-              <span className="text-sm text-muted-foreground font-medium">& More</span>
+              <span className="text-sm text-amber-700 font-medium">& More</span>
             </div>
           </div>
 
           <div className="max-w-4xl mx-auto text-center">
             <div className="mt-5 mb-8">
-              <h1 className="text-5xl font-bold leading-tight mb-6">
-                Aplikasi ERP yang didesain <br /> untuk bisnis Anda yang unik
+              <h1 className="text-5xl font-bold leading-tight mb-6 text-amber-900">
+                Aplikasi ERP & CRM <br /> untuk bisnis unik Anda
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mt-6 max-w-3xl mx-auto">
-                Tidak perlu lagi faham akuntansi untuk mencatat semua kegiatan bisnis anda
+              <p className="text-lg md:text-xl text-amber-700 mt-6 max-w-3xl mx-auto">
+                Tidak perlu lagi menggunakan banyak aplikasi dan faham akuntansi untuk mencatat semua kegiatan bisnis anda
               </p>
             </div>
             <div className="flex items-center justify-center mt-8">
-              <Button className="bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-800 hover:to-blue-600 py-6 px-10 rounded-full text-base font-semibold shadow-lg shadow-blue-500/30 transition-all duration-300">
+              <Button className="bg-gradient-to-r from-amber-800 to-amber-600 hover:from-amber-900 hover:to-amber-700 py-6 px-10 rounded-full text-base font-semibold shadow-lg shadow-amber-600/30 transition-all duration-300">
                 Hubungi Kami
               </Button>
             </div>
@@ -234,8 +222,8 @@ export default function LandingPage() {
           <div className="relative py-20 px-4">
             <div className="container mx-auto max-w-7xl">
               <div className="text-center mb-8">
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Trusted by 100+ companies</h3>
-                <p className="text-muted-foreground">Ribuan perusahaan terkemuka telah mempercayai sistem kami</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-amber-900 mb-2">Trusted by 100+ companies</h3>
+                <p className="text-amber-700">Ribuan perusahaan terkemuka telah mempercayai sistem kami</p>
               </div>
               <InfiniteMovingCards
                 items={trustedBrands}
@@ -245,194 +233,194 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-        <section id="services" className="py-20 px-4">
+        <section id="services" className="py-20 px-4 bg-amber-50">
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-amber-900">
                 Solusi Lengkap untuk Operasional Bisnis
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Tingkatkan efisiensi operasional dengan sistem yang fokus pada value bisnis Anda
+              <p className="text-lg text-amber-700 max-w-2xl mx-auto">
+                Anda tidak perlu memahami akuntansi, kami yang memahami bisnis unik Anda
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="group relative bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div className="group relative bg-white rounded-2xl p-8 border border-amber-200 hover:border-amber-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="relative">
-                  <div className="w-14 h-14 rounded-xl bg-blue-500 flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-amber-700 flex items-center justify-center mb-6 group-hover:bg-amber-800 transition-colors duration-300">
                     <Package className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900">Pencatatan Bahan Baku</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <h3 className="text-2xl font-bold mb-4 text-amber-900">Pencatatan Bahan Baku</h3>
+                  <p className="text-amber-700 mb-6 leading-relaxed">
                     Kelola inventori bahan baku secara terpusat dengan sistem yang rapi, transparan, dan mudah digunakan.
                   </p>
 
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-900">Tracking Real-Time</p>
-                        <p className="text-sm text-gray-600">Pantau stok bahan baku kapan saja secara akurat.</p>
+                        <p className="font-semibold text-amber-900">Tracking Real-Time</p>
+                        <p className="text-sm text-amber-700">Pantau stok bahan baku kapan saja secara akurat.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-900">Alert Otomatis</p>
-                        <p className="text-sm text-gray-600">Dapatkan notifikasi saat stok mencapai batas minimum.</p>
+                        <p className="font-semibold text-amber-900">Alert Otomatis</p>
+                        <p className="text-sm text-amber-700">Dapatkan notifikasi saat stok mencapai batas minimum.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-900">Multi-Gudang</p>
-                        <p className="text-sm text-gray-600">Kelola stok dari berbagai lokasi gudang dalam satu sistem.</p>
+                        <p className="font-semibold text-amber-900">Multi-Gudang</p>
+                        <p className="text-sm text-amber-700">Kelola stok dari berbagai lokasi gudang dalam satu sistem.</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="group relative bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div className="group relative bg-white rounded-2xl p-8 border border-amber-200 hover:border-amber-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="relative">
-                  <div className="w-14 h-14 rounded-xl bg-blue-500 flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-amber-700 flex items-center justify-center mb-6 group-hover:bg-amber-800 transition-colors duration-300">
                     <ShoppingCart className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900">Pencatatan Penjualan</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <h3 className="text-2xl font-bold mb-4 text-amber-900">Pencatatan Penjualan</h3>
+                  <p className="text-amber-700 mb-6 leading-relaxed">
                     Catat transaksi penjualan dengan cepat dan rapi untuk mendukung kontrol bisnis yang lebih baik.
                   </p>
 
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-gray-900">Pencatatan transaksi harian</p>
+                      <p className="text-amber-900">Pencatatan transaksi harian</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-gray-900">Pembuatan invoice otomatis</p>
+                      <p className="text-amber-900">Pembuatan invoice otomatis</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-gray-900">Mendukung berbagai metode pembayaran</p>
+                      <p className="text-amber-900">Mendukung berbagai metode pembayaran</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-gray-900">Monitoring performa penjualan secara terpusat</p>
+                      <p className="text-amber-900">Monitoring performa penjualan secara terpusat</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="group relative bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div className="group relative bg-white rounded-2xl p-8 border border-amber-200 hover:border-amber-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="relative">
-                  <div className="w-14 h-14 rounded-xl bg-blue-500 flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-amber-700 flex items-center justify-center mb-6 group-hover:bg-amber-800 transition-colors duration-300">
                     <FileText className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900">Laporan Bahan Baku</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <h3 className="text-2xl font-bold mb-4 text-amber-900">Laporan Bahan Baku</h3>
+                  <p className="text-amber-700 mb-6 leading-relaxed">
                     Analisis penggunaan bahan baku untuk membantu perencanaan dan pengambilan keputusan bisnis.
                   </p>
 
                   <div className="space-y-3 mb-6">
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-gray-900">Laporan stok real-time</p>
+                      <p className="text-amber-900">Laporan stok real-time</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-gray-900">Analisis penggunaan harian</p>
+                      <p className="text-amber-900">Analisis penggunaan harian</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-gray-900">Forecast kebutuhan bahan baku berbasis data</p>
+                      <p className="text-amber-900">Forecast kebutuhan bahan baku berbasis data</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="group relative bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div className="group relative bg-white rounded-2xl p-8 border border-amber-200 hover:border-amber-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="relative">
-                  <div className="w-14 h-14 rounded-xl bg-blue-500 flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-amber-700 flex items-center justify-center mb-6 group-hover:bg-amber-800 transition-colors duration-300">
                     <BarChart3 className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900">Laporan Keuangan</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <h3 className="text-2xl font-bold mb-4 text-amber-900">Laporan Keuangan</h3>
+                  <p className="text-amber-700 mb-6 leading-relaxed">
                     Dashboard keuangan terintegrasi untuk memantau kondisi finansial bisnis sesuai standar akuntansi.
                   </p>
 
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-gray-900">Laporan Laba Rugi</p>
+                      <p className="text-amber-900">Laporan Laba Rugi</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-gray-900">Neraca</p>
+                      <p className="text-amber-900">Neraca</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-gray-900">Arus Kas</p>
+                      <p className="text-amber-900">Arus Kas</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-amber-700 flex items-center justify-center shrink-0 mt-0.5">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-gray-900">Ringkasan keuangan bulanan</p>
+                      <p className="text-amber-900">Ringkasan keuangan bulanan</p>
                     </div>
                   </div>
                 </div>
@@ -440,13 +428,13 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section id="how-it-works" className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+        <section id="how-it-works" className="py-20 px-4 bg-gradient-to-b from-amber-50 to-amber-100">
           <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-                ERP untuk Setiap Industri
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-amber-900">
+                ERP & CRM untuk Setiap Industri
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-amber-700 max-w-2xl mx-auto">
                 Sistem yang dirancang khusus untuk kebutuhan unik bisnis Anda
               </p>
             </div>
@@ -456,24 +444,24 @@ export default function LandingPage() {
                 <Link
                   key={industry.id}
                   href={`/apps/${industry.slug}`}
-                  className="group relative bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                  className="group relative bg-white rounded-2xl p-6 border-2 border-amber-200 hover:border-amber-600 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                 >
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-bl-full" />
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-amber-600/10 to-yellow-600/10 rounded-bl-full" />
 
                   <div className="relative">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-700 to-amber-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <span className="text-2xl font-bold text-white">{index + 1}</span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-xl font-bold text-amber-900 mb-2 group-hover:text-amber-700 transition-colors">
                       {industry.name}
                     </h3>
 
-                    <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                    <p className="text-sm text-amber-700 mb-4 line-clamp-2">
                       {industry.description}
                     </p>
 
-                    <div className="flex items-center text-blue-600 font-semibold text-sm group-hover:gap-2 transition-all">
+                    <div className="flex items-center text-amber-700 font-semibold text-sm group-hover:gap-2 transition-all">
                       <span>Lihat Detail</span>
                       <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -486,47 +474,26 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
-      <footer id="about" className="text-white py-16">
+      <footer id="about" className="text-white py-16 bg-amber-900">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 
             <div>
               <div className="flex items-center gap-2 mb-6">
-                <div className="flex items-center justify-center p-1.5 bg-blue-500 text-white rounded-lg">
+                <div className="flex items-center justify-center p-1.5 bg-amber-700 text-white rounded-lg">
                   <Hexagon className="h-5 w-5 fill-current" />
                 </div>
-                <span className="font-bold text-xl text-black">Astiga ERP</span>
+                <span className="font-bold text-xl text-white">SaudagarPro</span>
               </div>
-              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                Sistem ERP terpercaya untuk membantu bisnis Anda tumbuh lebih cepat dan efisien dengan solusi yang disesuaikan untuk industri Anda.
+              <p className="text-amber-200 text-sm mb-6 leading-relaxed">
+                Sistem ERP & CRM terpercaya untuk membantu bisnis Anda tumbuh lebih cepat dan efisien dengan solusi yang disesuaikan untuk industri Anda.
               </p>
-              <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                  </svg>
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                  </svg>
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
-                  </svg>
-                </a>
-              </div>
+              <SocialMedias />
             </div>
 
             <div>
               <h3 className="font-bold text-lg mb-4">Solutions</h3>
-              <ul className="space-y-3 text-gray-400 text-sm">
+              <ul className="space-y-3 text-amber-200 text-sm">
                 <li><Link href="#services" className="hover:text-white transition-colors">Manfaat Aplikasi</Link></li>
                 <li><Link href="#services" className="hover:text-white transition-colors">Pencatatan Bahan Baku</Link></li>
                 <li><Link href="#services" className="hover:text-white transition-colors">Pencatatan Penjualan</Link></li>
@@ -537,7 +504,7 @@ export default function LandingPage() {
 
             <div>
               <h3 className="font-bold text-lg mb-4">Company</h3>
-              <ul className="space-y-3 text-gray-400 text-sm">
+              <ul className="space-y-3 text-amber-200 text-sm">
                 <li><Link href="#about" className="hover:text-white transition-colors">Tentang Kami</Link></li>
                 <li><Link href="#testimonials" className="hover:text-white transition-colors">Testimoni</Link></li>
                 <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
@@ -548,22 +515,22 @@ export default function LandingPage() {
 
             <div>
               <h3 className="font-bold text-lg mb-4">Support</h3>
-              <ul className="space-y-4 text-gray-400 text-sm">
+              <ul className="space-y-4 text-amber-200 text-sm">
                 <li>
-                  <a href="mailto:info@astiga.id" className="flex items-center gap-3 hover:text-white transition-colors">
-                    <Mail className="w-4 h-4 text-blue-500" />
-                    <span>info@astiga.id</span>
+                  <a href="mailto:ardhi.rofi@kaizeni.xyz" className="flex items-center gap-3 hover:text-white transition-colors">
+                    <Mail className="w-4 h-4 text-amber-600" />
+                    <span>ardhi.rofi@kaizeni.xyz</span>
                   </a>
                 </li>
                 <li>
                   <a href="tel:+6281234567890" className="flex items-center gap-3 hover:text-white transition-colors">
-                    <Phone className="w-4 h-4 text-blue-500" />
+                    <Phone className="w-4 h-4 text-amber-600" />
                     <span>+62 812-3456-7890</span>
                   </a>
                 </li>
                 <li>
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-blue-500 mt-1" />
+                    <MapPin className="w-4 h-4 text-amber-600 mt-1" />
                     <span>Jakarta, Indonesia</span>
                   </div>
                 </li>
@@ -574,12 +541,12 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-gray-800">
+          <div className="pt-8 border-t border-amber-800">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-400 text-sm">
-                © 2024 Astiga ERP. All rights reserved.
+              <p className="text-amber-200 text-sm">
+                © {new Date().getFullYear()} SaudagarPro. All rights reserved.
               </p>
-              <div className="flex gap-6 text-sm text-gray-400">
+              <div className="flex gap-6 text-sm text-amber-200">
                 <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                 <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
                 <Link href="/cookies" className="hover:text-white transition-colors">Cookies</Link>

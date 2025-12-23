@@ -169,7 +169,7 @@ export const industries: Industry[] = [
                 name: "Budi Santoso",
                 role: "Production Manager",
                 company: "Fashionista Garment",
-                content: "Sejak pakai Astiga ERP, produksi kami jauh lebih terorganisir. Tracking material jadi mudah dan waste berkurang drastis. ROI tercapai dalam 6 bulan!",
+                content: "Sejak pakai SaudagarPro, produksi kami jauh lebih terorganisir. Tracking material jadi mudah dan waste berkurang drastis. ROI tercapai dalam 6 bulan!",
                 rating: 5
             },
             {
